@@ -4,7 +4,7 @@ const { components } = require("./src/plugins/components");
 module.exports = {
   title: "LinkedIn Growth Tool",
   tagline: "Extend LinkedIn Ads",
-  url: "",
+  url: "https://cranky-perlman-9f39ab.netlify.app/",
   baseUrl: "/",
   favicon: "img/favicon.ico",
   organizationName: "Jeffail",
