@@ -98,27 +98,3 @@ cache_resources:
 It's also possible to configure inputs, outputs and processors as resources which allows them to be reused throughout a configuration with the [`resource` input][inputs.resource], [`resource` output][outputs.resource] and [`resource` processor][processors.resource] respectively.
 
 For more information about any of these component types check out their sections:
-
-- [inputs][inputs]
-- [processors][processors]
-- [outputs][outputs]
-- [buffers][buffers]
-- [metrics][metrics]
-- [tracers][tracers]
-- [logger][logger]
-- [caches][caches]
-- [rate limits][rate_limits]
-
-[inputs]: /docs/components/inputs/about
-[inputs.resource]: /docs/components/inputs/resource
-[processors]: /docs/components/processors/about
-[processors.resource]: /docs/components/processors/resource
-[outputs]: /docs/components/outputs/about
-[outputs.resource]: /docs/components/outputs/resource
-[buffers]: /docs/components/buffers/about
-[metrics]: /docs/components/metrics/about
-[tracers]: /docs/components/tracers/about
-[logger]: /docs/components/logger/about
-[http]: /docs/components/http/about
-[caches]: /docs/components/caches/about
-[rate_limits]: /docs/components/rate_limits/about
