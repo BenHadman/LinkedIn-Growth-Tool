@@ -1,17 +1,17 @@
 const { docuHash } = require("@docusaurus/utils");
 
 const redirects = [
-  ["/docs/", "/docs/about", false],
-  ["/buffers", "/docs/components/buffers/", true],
-  ["/caches", "/docs/components/caches/", true],
-  ["/conditions", "/docs/components/conditions/", true],
+  //["/docs/", "/docs/about", false],
+  // ["/buffers", "/docs/components/buffers/", true],
+  //  ["/caches", "/docs/components/caches/", true],
+  // ["/conditions", "/docs/components/conditions/", true],
   // ["/inputs", "/docs/components/inputs/", true],
-  ["/logger", "/docs/components/logger/about", false],
-  ["/metrics", "/docs/components/metrics/", true],
-  ["/outputs", "/docs/components/outputs/", true],
-  ["/processors", "/docs/components/processors/", true],
-  ["/rate_limits", "/docs/components/rate_limits/", true],
-  ["/tracers", "/docs/components/tracers/", true],
+  // ["/logger", "/docs/components/logger/about", false],
+  // ["/metrics", "/docs/components/metrics/", true],
+  // ["/outputs", "/docs/components/outputs/", true],
+  // ["/processors", "/docs/components/processors/", true],
+  // ["/rate_limits", "/docs/components/rate_limits/", true],
+  // ["/tracers", "/docs/components/tracers/", true],
   [
     "/examples/kafka-delayed-retry",
     "/cookbooks/joining-streams#adding-a-retry-queue",
@@ -32,7 +32,7 @@ const redirects = [
   ["/streams", "/docs/guides/streams_mode/about", false],
   [
     "/docs/configuration/workflows",
-    "/docs/components/processors/workflow",
+    //  "/docs/components/processors/workflow",
     false
   ],
   ["/docs/guides/aws", "/docs/guides/cloud/aws", false],
