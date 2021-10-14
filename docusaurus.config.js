@@ -10,7 +10,7 @@ module.exports = {
   organizationName: "Jeffail",
   projectName: "benthos",
   customFields: {
-    components: {
+    /*  components: {
       inputs: components("inputs"),
       processors: components("processors"),
       conditions: components("conditions"),
@@ -20,7 +20,7 @@ module.exports = {
       buffers: components("buffers"),
       metrics: components("metrics"),
       tracers: components("tracers")
-    }
+    } */
   },
   themeConfig: {
     prism: {
