@@ -5,7 +5,7 @@ const redirects = [
   ["/buffers", "/docs/components/buffers/", true],
   ["/caches", "/docs/components/caches/", true],
   ["/conditions", "/docs/components/conditions/", true],
-  ["/inputs", "/docs/components/inputs/", true],
+  // ["/inputs", "/docs/components/inputs/", true],
   ["/logger", "/docs/components/logger/about", false],
   ["/metrics", "/docs/components/metrics/", true],
   ["/outputs", "/docs/components/outputs/", true],
