@@ -1,46 +1,64 @@
 ---
-title: Processors
-sidebar_label: About
+title: HTTP
 ---
 
-Benthos processors are functions applied to messages passing through a pipeline. The function signature allows a processor to mutate or drop messages depending on the content of the message. There are many types on offer but the most powerful is the [`bloblang` processor][processor.bloblang].
+When Benthos runs it kicks off an HTTP server that provides a few generally useful endpoints and is also where configured components such as the [`http_server` input][inputs.http_server] [and output][outputs.http_server] can register their own endpoints if they don't require their own host/port.
 
-Processors are set via config, and depending on where in the config they are placed they will be run either immediately after a specific input (set in the input section), on all messages (set in the pipeline section) or before a specific output (set in the output section). Most processors apply to all messages and can be placed in the pipeline section:
+The configuration for this server lives under the `http` namespace, with the following default values:
 
 ```yaml
-pipeline:
-  threads: 1
-  processors:
-    - label: my_cool_mapping
-      bloblang: |
-        root.message = this
-        root.meta.link_count = this.links.length()
+http:
+  address: 0.0.0.0:4195
+  enabled: true
+  read_timeout: 5s
+  root_path: /benthos
+  debug_endpoints: false
+  cert_file: ""
+  key_file: ""
+  cors:
+    enabled: false
+    allowed_origins: []
 ```
 
-The `threads` field in the pipeline section determines how many parallel processing threads are created. You can read more about parallel processing in the [pipeline guide][pipelines].
+The field `enabled` can be set to `false` in order to disable the server.
 
-## Labels
+The field `root_path` specifies a general prefix for all endpoints, this can help isolate the service endpoints when using a reverse proxy with other shared services. All endpoints will still be registered at the root as well as behind the prefix, e.g. with a `root_path` set to `/foo` the endpoint `/version` will be accessible from both `/version` and `/foo/version`.
 
-Processors have an optional field `label` that can uniquely identify them in observability data such as metrics and logs. This can be useful when running configs with multiple nested processors, otherwise their metrics labels will be generated based on their composition. For more information check out the [metrics documentation][metrics.about].
+## Enabling HTTPS
 
-import ComponentsByCategory from '@theme/ComponentsByCategory';
+By default Benthos will serve traffic over HTTP. In order to enforce TLS and serve traffic exclusively over HTTPS you must provide a `cert_file` and `key_file` path in your config, which point to a file containing a certificate and a matching private key for the server respectively.
 
-## Categories
+If the certificate is signed by a certificate authority, the `cert_file` should be the concatenation of the server's certificate, any intermediates, and the CA's certificate.
 
-<ComponentsByCategory type="processors"></ComponentsByCategory>
+## Endpoints
 
-## Error Handling
+The following endpoints will be generally available when the HTTP server is enabled:
 
-Some processors have conditions whereby they might fail. Rather than throw these messages into the abyss Benthos still attempts to send these messages onwards, and has mechanisms for filtering, recovering or dead-letter queuing messages that have failed which can be read about [here][error_handling].
+- `/version` provides version info.
+- `/ping` can be used as a liveness probe as it always returns a 200.
+- `/ready` can be used as a readiness probe as it serves a 200 only when both the input and output are connected, otherwise a 503 is returned.
+- `/metrics`, `/stats` both provide metrics when the metrics type is either [`http_server`][metrics.http_server] or [`prometheus`][metrics.prometheus].
+- `/endpoints` provides a JSON object containing a list of available endpoints, including those registered by configured components.
 
-## Batching and Multiple Part Messages
+## CORS
 
-All Benthos processors support multiple part messages, which are synonymous with batches. This enables some cool [windowed processing][windowed_processing] capabilities.
+In order to serve Cross-Origin Resource Sharing headers, which instruct browsers to allow CORS requests, set the field `enable_cors` to `true`.
 
-Many processors are able to perform their behaviours on specific parts of a message batch, or on all parts, and have a field `parts` for specifying an array of part indexes they should apply to. If the list of target parts is empty these processors will be applied to all message parts.
+## Debug Endpoints
 
-Part indexes can be negative, and if so the part will be selected from the end counting backwards starting from -1. E.g. if part = -1 then the selected part will be the last part of the message, if part = -2 then the part before the last element will be selected, and so on.
+The field `debug_endpoints` when set to `true` prompts Benthos to register a few extra endpoints that can be useful for debugging performance or behavioral problems:
 
-Some processors such as [`dedupe`][processor.dedupe] act across an entire batch, when instead we might like to perform them on individual messages of a batch. In this case the [`for_each`][processor.for_each] processor can be used.
+- `/debug/config/json` returns the loaded config as JSON.
+- `/debug/config/yaml` returns the loaded config as YAML.
+- `/debug/pprof/block` responds with a pprof-formatted block profile.
+- `/debug/pprof/heap` responds with a pprof-formatted heap profile.
+- `/debug/pprof/mutex` responds with a pprof-formatted mutex profile.
+- `/debug/pprof/profile` responds with a pprof-formatted cpu profile.
+- `/debug/pprof/symbol` looks up the program counters listed in the request, responding with a table mapping program counters to function names.
+- `/debug/pprof/trace` responds with the execution trace in binary form. Tracing lasts for duration specified in seconds GET parameter, or for 1 second if not specified.
+- `/debug/stack` returns a snapshot of the current service stack trace.
 
-You can read more about batching [in this document][batching].
+[inputs.http_server]: /docs/components/inputs/http_server
+[outputs.http_server]: /docs/components/outputs/http_server
+[metrics.http_server]: /docs/components/metrics/http_server
+[metrics.prometheus]: /docs/components/metrics/prometheus
