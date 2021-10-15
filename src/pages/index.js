@@ -99,7 +99,7 @@ output:
   },
   {
     label: "Windowing",
-    further: "/docs/configuration/windowed_processing",
+    further: "/docs/",
     config: `input:
   nats_jetstream:
     urls: [ nats://TODO:4222 ]
@@ -133,7 +133,7 @@ output:
   },
   {
     label: "Enrichments",
-    further: "/cookbooks/enrichments",
+    further: "/cookbooks/",
     config: `input:
   mqtt:
     urls: [ tcp://TODO:1883 ]
