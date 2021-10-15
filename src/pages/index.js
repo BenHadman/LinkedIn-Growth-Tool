@@ -295,7 +295,10 @@ function Home() {
               </div>
             </div>
             <div className={classnames("col col--5")}>
-              <img className={styles.heroImg} src="img/logo_hero.svg" />
+              <img
+                className={styles.heroImg}
+                src="img/undraw_Spreadsheets_re_alt0.png"
+              />
             </div>
           </div>
         </div>
