@@ -18,7 +18,7 @@ module.exports = {
     {
       type: "category",
       label: "Background",
-      items: ["google_sheets_appscript"]
+      items: ["google_sheets_appscript/google_sheets"]
     } /*
     {
       type: "category",
