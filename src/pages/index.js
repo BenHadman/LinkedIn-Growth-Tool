@@ -99,7 +99,7 @@ output:
   },
   {
     label: "Windowing",
-    further: "/docs/",
+    further: "/docs/components/outputs/about#multiplexing-outputs",
     config: `input:
   nats_jetstream:
     urls: [ nats://TODO:4222 ]
@@ -182,7 +182,7 @@ const features = [
         <p>
           It comes armed with a wide range of{" "}
           <a href="/docs/components/processors/about">processors</a>, a{" "}
-          <a href="/docs/guides/bloblang/about">lit mapping language</a>,
+          <a href="/docs/components/processors/about">lit mapping language</a>,
           stateless{" "}
           <a href="/docs/configuration/windowed_processing">
             windowed processing capabilities
