@@ -163,7 +163,7 @@ const features = [
   },
   {
     title: "Well Connected",
-    imageUrl: "img/Blobborg.svg",
+    imageUrl: "img/undraw_Spreadsheets_re_alt0.png",
     description: (
       <>
         <p>
