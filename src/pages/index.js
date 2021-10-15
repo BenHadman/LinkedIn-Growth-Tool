@@ -295,7 +295,7 @@ function Home() {
               </div>
             </div>
             <div className={classnames("col col--5")}>
-              <img className={styles.heroImg} src="img/banner.png" />
+              <img className={styles.heroImg} src="img/banner.svg" />
             </div>
           </div>
         </div>
