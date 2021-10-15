@@ -54,7 +54,7 @@ docker run --rm -v $(pwd)/config.yaml:/benthos.yaml jeffail/benthos`
 const snippets = [
   {
     label: "Mapping",
-    further: "/docs/guides/bloblang/about",
+    further: "/docs/components/metrics/about",
     config: `input:
   gcp_pubsub:
     project: foo
