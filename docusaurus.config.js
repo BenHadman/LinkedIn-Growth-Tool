@@ -8,7 +8,7 @@ module.exports = {
   baseUrl: "/",
   favicon: "img/favicon.ico",
   organizationName: "Jeffail",
-  projectName: "benthos",
+  projectName: "LinkedIn Growth Tool",
   customFields: {
     /*  components: {
       inputs: components("inputs"),
@@ -45,13 +45,13 @@ module.exports = {
         { to: "videos", label: "Videos", position: "left" },
         { to: "community", label: "Community", position: "right" },
         {
-          href: "https://github.com/Jeffail/benthos/releases/latest",
+          href: "https://github.com/BenHadman/LinkedIn-Growth-Tool",
           position: "right",
           className: "header-download-link header-icon-link",
           "aria-label": "Download"
         },
         {
-          href: "https://github.com/Jeffail/benthos",
+          href: "https://github.com/BenHadman/LinkedIn-Growth-Tool/",
           position: "right",
           className: "header-github-link header-icon-link",
           "aria-label": "GitHub repository"
@@ -83,7 +83,7 @@ module.exports = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/Jeffail/benthos"
+              href: "https://github.com/BenHadman/LinkedIn-Growth-Tool"
             }
           ]
         },
@@ -101,7 +101,7 @@ module.exports = {
           ]
         }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Ashley Jeffs.`
+      copyright: `Copyright © ${new Date().getFullYear()} Ben Hadman.`
     },
     algolia: {
       apiKey: "358e5d3135579871ceecd50c6cb7ce9e",
@@ -114,7 +114,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/Jeffail/benthos/edit/master/website/"
+          editUrl: "https://github.com/BenHadman/LinkedIn-Growth-Tool"
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css")

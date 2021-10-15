@@ -15,24 +15,7 @@ module.exports = {
       type: "doc",
       id: "intro"
     }
-    /*  {
-      type: "category",
-      label: "Configuration",
-      items: [
-        "configuration/about",
-        "configuration/resources",
-        "configuration/batching",
-        "configuration/windowed_processing",
-        "configuration/metadata",
-        "configuration/error_handling",
-        "configuration/interpolation",
-        "configuration/field_paths",
-        "configuration/processing_pipelines",
-        "configuration/unit_testing",
-        "configuration/templating",
-        "configuration/dynamic_inputs_and_outputs"
-      ]
-    },
+    /*
     {
       type: "category",
       label: "Components",
@@ -48,36 +31,6 @@ module.exports = {
           type: "category",
           label: "Processors",
           items: processors_docs
-        },
-        {
-          type: "category",
-          label: "Outputs",
-          items: outputs_docs
-        },
-        {
-          type: "category",
-          label: "Caches",
-          items: caches_docs
-        },
-        {
-          type: "category",
-          label: "Rate Limits",
-          items: rate_limits_docs
-        },
-        {
-          type: "category",
-          label: "Buffers",
-          items: buffers_docs
-        },
-        {
-          type: "category",
-          label: "Metrics",
-          items: metrics_docs
-        },
-        {
-          type: "category",
-          label: "Tracers",
-          items: tracers_docs
         },
         "components/logger/about"
       ]
