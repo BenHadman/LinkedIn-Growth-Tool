@@ -14,27 +14,22 @@ module.exports = {
     {
       type: "doc",
       id: "intro"
-    }
-    /*
+    },
+
     {
       type: "category",
       label: "Components",
       items: [
-        "components/about",
-        "components/http/about",
+        //"components/about",
+        //"components/http/about",
         {
           type: "category",
-          label: "Inputs",
-          items: inputs_docs
+          label: "Google Sheets & AppScript",
+          items: "google_sheets_appscript"
         },
-        {
-          type: "category",
-          label: "Processors",
-          items: processors_docs
-        },
-        "components/logger/about"
+        "google_sheets_appscript"
       ]
-    },
+    } /*
     {
       type: "category",
       label: "Guides",
