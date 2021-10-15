@@ -134,34 +134,10 @@ output:
   {
     label: "Enrichments",
     further: "/cookbooks/",
-    config: `input:
-  mqtt:
-    urls: [ tcp://TODO:1883 ]
-    topics: [ foo ]
-
-pipeline:
-  processors:
-    - branch:
-        request_map: |
-          root.id = this.doc.id
-          root.content = this.doc.body
-        processors:
-          - aws_lambda:
-              function: sentiment_analysis
-        result_map: root.results.sentiment = this
-
-output:
-  aws_s3:
-    bucket: TODO
-    path: '\${! meta("partition") }/\${! timestamp_unix_nano() }.tar.gz'
-    batching:
-      count: 100
-      period: 10s
-      processors:
-        - archive:
-            format: tar
-        - compress:
-            algorithm: gzip`
+    config: `| Syntax | Description |
+    | ----------- | ----------- |
+    | Header | Title |
+    | Paragraph | Text |`
   }
 ];
 
