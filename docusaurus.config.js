@@ -33,9 +33,9 @@ module.exports = {
     image: "img/og_img.png",
     metadatas: [{ name: "twitter:card", content: "summary" }],
     navbar: {
-      title: "Benthos",
+      title: "LinkedIn Growth Tool",
       logo: {
-        alt: "Benthos Blobfish",
+        alt: "LIGE",
         src: "img/logo.svg"
       },
       items: [
